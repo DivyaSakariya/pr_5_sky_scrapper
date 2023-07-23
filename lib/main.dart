@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pr_5_sky_scrapper/provider/home_provider.dart';
 import 'package:pr_5_sky_scrapper/provider/theme_provider.dart';
 import 'package:pr_5_sky_scrapper/views/screens/home_page.dart';
+import 'package:pr_5_sky_scrapper/views/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'helper/app_theme.dart';
@@ -34,7 +35,11 @@ class MyApp extends StatelessWidget {
       themeMode: Provider.of<ThemeProvider>(context).isDark
           ? ThemeMode.dark
           : ThemeMode.light,
-      home: const HomePage(),
+      initialRoute: 'splash_screen',
+      routes: {
+        '/': (context) => const HomePage(),
+        'splash_screen': (context) => const SplashScreen(),
+      },
     );
   }
 }
